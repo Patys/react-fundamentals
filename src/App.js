@@ -19,11 +19,13 @@ class App extends React.Component {
         <h1>Hi :)</h1>
         <b>Bold</b>
         <p>{txt}</p>
-        <input type="text" onChange={this.update.bind(this)}/>
+        <InputWidget update={this.update.bind(this)} />
         <p>{this.state.myTxt}</p>
       </div>
     )
   }
 }
+
+const InputWidget = (props) => <input type="text" onChange={props.update}/>
 
 export default App
