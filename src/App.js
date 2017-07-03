@@ -16,6 +16,14 @@ class App extends React.Component {
     });
   }
 
+  componentWillMount() {
+    console.log('componentWillMount');
+  }
+
+  componetDidMount() {
+    console.log('componetDidMount');
+  }
+
   render() {
     let txt = this.props.txt;
     return (
