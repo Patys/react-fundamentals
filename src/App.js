@@ -24,6 +24,12 @@ class App extends React.Component {
     console.log('componetDidMount');
   }
 
+  updateButton() {
+    this.setState({
+      currentEvent: 'Button clicked'
+    });
+  }
+
   render() {
     let txt = this.props.txt;
     return (
@@ -46,7 +52,7 @@ class App extends React.Component {
           cols="30"
           rows="10" />
         <p>{this.state.currentEvent}</p>
-        <ButtonWidget>Wyślij <Heart /></ButtonWidget>
+        <ButtonWidget onClick={this.updateButton.bind(this)}>Wyślij <Heart /></ButtonWidget>
       </div>
     )
   }

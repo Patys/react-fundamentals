@@ -1,7 +1,7 @@
 import React from 'react';
 
 const InputWidget = (props) => <input type="text" onChange={props.update}/>
-const ButtonWidget = (props) => <button>{props.children}</button>
+const ButtonWidget = (props) => <button onClick={props.onClick}>{props.children}</button>
 const TitleWidget = (props) => <h1>Title: {props.text}</h1>
 
 TitleWidget.propTypes = {
