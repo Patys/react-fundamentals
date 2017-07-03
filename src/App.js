@@ -1,4 +1,6 @@
 import React from 'react';
+import Heart from './Symbols'
+
 
 class App extends React.Component {
   constructor() {
@@ -21,7 +23,7 @@ class App extends React.Component {
         <p>{txt}</p>
         <InputWidget update={this.update.bind(this)} />
         <p>{this.state.myTxt}</p>
-        <ButtonWidget>Wyślij</ButtonWidget>
+        <ButtonWidget>Wyślij <Heart /></ButtonWidget>
       </div>
     )
   }
