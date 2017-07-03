@@ -1,6 +1,6 @@
 import React from 'react';
 import Heart from './Symbols'
-
+import {InputWidget, ButtonWidget, TitleWidget} from './Widgets'
 
 class App extends React.Component {
   constructor() {
@@ -27,21 +27,6 @@ class App extends React.Component {
         <ButtonWidget>Wyślij <Heart /></ButtonWidget>
       </div>
     )
-  }
-}
-
-const InputWidget = (props) => <input type="text" onChange={props.update}/>
-const ButtonWidget = (props) => <button>{props.children}</button>
-const TitleWidget = (props) => <h1>Title: {props.text}</h1>
-
-TitleWidget.propTypes = {
-  text(props, propName, component) {
-    if(!(propName in props)) {
-      return new Error(`missing ${propName}`);
-    }
-    if(props[propName].length < 6) {
-      return new Error(`${propName} was too short`);
-    }
   }
 }
 
