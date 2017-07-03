@@ -6,12 +6,14 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      myTxt: 'Patryk wita świat :D'
+      currentEvent: '---'
     }
   }
 
   update(e) {
-    this.setState({myTxt: e.target.value});
+    this.setState({
+      currentEvent: e.type
+    });
   }
 
   render() {
@@ -22,8 +24,20 @@ class App extends React.Component {
         <h1>Hi :)</h1>
         <b>Bold</b>
         <p>{txt}</p>
-        <InputWidget update={this.update.bind(this)} />
-        <p>{this.state.myTxt}</p>
+        <textarea
+          onKeyPress={this.update.bind(this)}
+          onCopy={this.update.bind(this)}
+          onCut={this.update.bind(this)}
+          onPaste={this.update.bind(this)}
+          onFocus={this.update.bind(this)}
+          onBlur={this.update.bind(this)}
+          onDoubleClick={this.update.bind(this)}
+          onTouchStart={this.update.bind(this)}
+          onTouchMove={this.update.bind(this)}
+          onTouchEnd={this.update.bind(this)}
+          cols="30"
+          rows="10" />
+        <p>{this.state.currentEvent}</p>
         <ButtonWidget>Wyślij <Heart /></ButtonWidget>
       </div>
     )
