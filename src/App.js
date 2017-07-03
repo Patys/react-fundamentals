@@ -6,7 +6,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentEvent: '---'
+      currentEvent: '---',
+      items: []
     }
   }
 
@@ -17,7 +18,10 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    console.log('componentWillMount');
+    fetch('https://swapi.co/api/people/?format=json')
+      .then(response => response.json())
+      .then(({results: items}) => this.setState({'items': items}))
+      .catch((err) => console.log(err));
   }
 
   componetDidMount() {
@@ -32,6 +36,7 @@ class App extends React.Component {
 
   render() {
     let txt = this.props.txt;
+    let items = this.state.items;
     return (
       <div>
         <TitleWidget text="Nauka react'a"/>
@@ -53,6 +58,9 @@ class App extends React.Component {
           rows="10" />
         <p>{this.state.currentEvent}</p>
         <ButtonWidget onClick={this.updateButton.bind(this)}>Wyślij <Heart /></ButtonWidget>
+        <div>
+          {items.map(item => <h4 key={item.name}>{item.name}</h4>)}
+        </div>
       </div>
     )
   }
