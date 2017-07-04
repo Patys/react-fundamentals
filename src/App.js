@@ -86,6 +86,14 @@ class App extends React.Component {
   }
 }
 
+// class Parent extends React.Component {
+//   render() {
+//     let items = React.Children.toArray(this.props.children);
+//     console.log(items);
+//     return null;
+//   }
+// }
+
 App.defaultProps = {
   val: 0
 }
