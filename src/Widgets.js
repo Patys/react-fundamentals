@@ -3,6 +3,7 @@ import React from 'react';
 const InputWidget = (props) => <input type="text" onChange={props.update}/>
 const ButtonWidget = (props) => <button onClick={props.onClick}>{props.children}</button>
 const TitleWidget = (props) => <h1>Title: {props.text}</h1>
+const PersonWidget = (props) => <h4>{props.person.name}</h4>
 
 TitleWidget.propTypes = {
   text(props, propName, component) {
@@ -15,4 +16,4 @@ TitleWidget.propTypes = {
   }
 }
 
-export {InputWidget, ButtonWidget, TitleWidget}
+export {InputWidget, ButtonWidget, TitleWidget, PersonWidget}
