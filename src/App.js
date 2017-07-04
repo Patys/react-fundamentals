@@ -78,21 +78,21 @@ class App extends React.Component {
         <ButtonWidget onClick={this.updateButton.bind(this)}>Wyślij <Heart /></ButtonWidget>
         <button onClick={this.updateButtonProps.bind(this)}>{this.props.val}</button>
         <InputWidget update={this.filter.bind(this)} />
-        <div>
+        <Parent>
           {items.map(item => <PersonWidget key={item.name} person={item}/>)}
-        </div>
+        </Parent>
       </div>
     )
   }
 }
 
-// class Parent extends React.Component {
-//   render() {
-//     let items = React.Children.toArray(this.props.children);
-//     console.log(items);
-//     return null;
-//   }
-// }
+class Parent extends React.Component {
+  render() {
+    let items = React.Children.toArray(this.props.children);
+    console.log(items);
+    return <div>{items}</div>;
+  }
+}
 
 App.defaultProps = {
   val: 0
